@@ -1,0 +1,48 @@
+footer {
+  position:relative;
+  bottom: 0;
+  width: 100vw;
+  background: #252525;
+  z-index: 10;
+  padding: 8px;
+}
+.footer_down{
+  bottom: -110px;
+
+}
+.footer_col {
+    position: relative;
+  margin-top: 45px;
+  color: white;
+}
+.footer_title {
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.menu_links {
+  position: relative;
+}
+.menu_links li {
+letter-spacing: 2px;
+font-size: 13px;
+padding-top: 9px;
+transform: translate(-40px);
+cursor: pointer;
+color: orange;
+}
+.menu_links li:hover{color: orangered;}
+.footer_social{
+    display: flex;
+    transform: translate(-40px);
+}
+.footer_social li{
+    margin-right: 30px;
+cursor: pointer;
+transition: .1s all linear;
+}
+.footer_social li:hover{
+    transform: scale(1.5);
+    color: orangered;
+}

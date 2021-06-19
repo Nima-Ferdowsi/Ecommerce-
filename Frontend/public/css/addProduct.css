@@ -1,0 +1,122 @@
+body {
+  position: absolute;
+  
+  background-color: #4e657a;
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+.form_container {
+  width: 65vw;
+  height: 500px;
+  background-color: #435c70;
+  position: relative;
+}
+
+.inputs_container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.left_box {
+  position: relative;
+  width: 100%;
+}
+.box_title {
+  color: white;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.input_row {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 40px;
+  margin-top: 20px;
+  color: white;
+  width: 100%;
+}
+
+.custom-select {
+  background-color: #54657d;
+  color: white;
+  width: 90%;
+
+
+}
+.form-control {
+  padding: 19px 18px;
+  background-color: #54657d;
+  height: 50px;
+  outline: none;
+  outline-width: 0;
+  color: white;
+  width: 90%;
+}
+.form-control:focus {
+  background-color: #54657d;
+  outline: none;
+  outline-width: 0;
+  color: white;
+}
+
+.upload_sec {
+  width: 250px;
+  height: 250px;
+  background-color: #aaa;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upload_sec label {
+  position: relative;
+}
+.upload_sec label input {
+  -webkit-appearance: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+.upload_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -4%;
+}
+.upload-icon {
+  color: white;
+  font-size: 40px;
+}
+.add_btn {
+  width: 80%;
+  margin: auto;
+  margin-top: 40px;
+  height: 60px;
+}
+select.form-control{
+  color: white;
+}
+
+@media only screen and (max-width:800px){
+  body{
+    position: relative;
+
+  }
+  .form_container {
+    width: 100vw;
+    height: 1000px;
+    background-color: #435c70;
+    position: relative;
+  }
+  
+}

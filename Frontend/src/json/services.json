@@ -1,0 +1,32 @@
+[
+  {
+    "icon": "fa fa-chart-pie",
+    "title": "Business Consulting",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at."
+  },
+  {
+    "icon": "fa fa-backspace",
+    "title": "Market Analysis",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at."
+  },
+  {
+    "icon": "fa fa-clock",
+    "title": "User Monitoring",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at."
+  },
+  {
+    "icon": "fa fa-check-circle",
+    "title": "Seller Consulting",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at."
+  },
+  {
+    "icon": "fa fa-business-time",
+    "title": "Financial Investment ",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at."
+  },
+  {
+    "icon": "fa fa fa-cloud-upload-alt",
+    "title": "Financial Management",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at."
+  }
+]

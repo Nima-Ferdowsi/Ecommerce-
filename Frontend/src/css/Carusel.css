@@ -1,0 +1,87 @@
+.carousel {
+  position: relative;
+  margin-top: 140px;
+  height: fit-content;
+  z-index: 0;
+}
+.carousel img {
+  position: relative;
+  width: 100vw;
+  height: 705px;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+}
+.carousel-item::after {
+  position: relative;
+}
+.carousel-info {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    color: white;
+
+}
+.carousel-info span{
+   position: relative;
+    font-size: 58px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    z-index: 110;
+}
+.carousel-info p{
+    width: 50%;
+    position: relative;
+    z-index: 110;
+    font-size: 18px;
+}
+
+.carousel button{
+    position: relative;
+    z-index: 110;
+    border: none;
+    margin-left: 20px;
+    padding: 11px;
+    width: 150px;
+    cursor: pointer;
+    transition:.4s all;
+
+}
+.carousel button:nth-child(1){
+    background-color: transparent;
+    color: white;
+    border: 2.2px solid white;
+}
+.carousel button:nth-child(1):hover{
+    background-color: white;
+    color: black;
+}
+.carousel button:nth-child(2):hover{
+    background-color: transparent;
+    color: white;
+    border: 2.2px solid white;
+
+}
+.overlay{
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 100;
+}
+
+@media only screen and (max-width:800px){
+    .carousel-info span{
+        position: relative;
+         font-size: 35px;
+     }
+     .carousel-info p{
+        width: 80%;
+    }
+    .carousel-info {
+        position: absolute;
+        top: 30%;
+        
+    
+    }
+}

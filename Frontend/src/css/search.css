@@ -1,0 +1,11 @@
+.search_container{
+    position: relative;
+    top: 100px;
+    height: fit-content;
+}
+.product_containers{
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    top: 0;
+}

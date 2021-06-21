@@ -1,5 +1,5 @@
 body {
-  position: absolute;
+  position: static;
   
   background-color: #4e657a;
   height: 100%;
@@ -11,9 +11,15 @@ body {
 }
 .form_container {
   width: 65vw;
-  height: 500px;
+  height:160vh;
   background-color: #435c70;
   position: relative;
+}
+.table{
+  width: 80%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .inputs_container {
@@ -40,11 +46,17 @@ body {
   width: 100%;
 }
 
-.custom-select {
+.custom-select,.row_input {
   background-color: #54657d;
   color: white;
   width: 90%;
 
+
+}
+.row_input{
+  border: none;
+  border-radius: 5px;
+  padding: 14px 18px;
 
 }
 .form-control {
@@ -114,9 +126,18 @@ select.form-control{
   }
   .form_container {
     width: 100vw;
-    height: 1000px;
+    height: 1400px;
     background-color: #435c70;
     position: relative;
+  }
+  .upload_container {
+    top:1%;
+    margin-top: 10px;
+    margin-bottom: 60px;
+  }
+  .add_btn{margin-right:70px; width: 90%;}
+  .btn-success{
+    margin-right:0; width: 90%;
   }
   
 }

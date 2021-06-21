@@ -16,3 +16,18 @@ code {
 ul{
   list-style: none;
 }
+li a,li a:hover{
+  color: black;
+  text-decoration: none;
+}
+@media only screen and (max-width: 480px) {
+  .Toastify__toast-container{
+    width: 70vw !important;
+  }
+}
+@media only screen and (max-width: 800px) {
+
+  .cart{
+    width: 800px;
+  }
+}

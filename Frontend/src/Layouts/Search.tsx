@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import Navbar from "./../components/Navbar";
 import Footer from "./../components/Footer";
 import Filter from "./../components/Filter";
@@ -8,45 +8,35 @@ import product3 from "../img/pexels-leo-cardelli-1236701.jpg";
 
 import "../css/search.css";
 import Product from "../components/Product";
-const Home: React.FC = () => {
-  const [product, setProduct] = useState([
-    {
-      title: "Wild West Hoodie",
-      img: product1,
-    },
-    {
-      title: "Wild West Hoodie",
-      img: product2,
-    },
-    {
-      title: "Wild West Hoodie",
-      img: product3,
-    },
-    {
-      title: "Wild West Hoodie",
-      img: product1,
-    },
-    {
-      title: "Wild West Hoodie",
-      img: product1,
-    },
-    {
-      title: "Wild West Hoodie",
-      img: product1,
-    },
-  ]);
+import { withRouter } from "react-router";
+import { server } from "../config/server.json";
+import { useHistory } from 'react-router-dom'
+
+const Search: React.FC = (props: any) => {
+  const [product, setProduct] = useState([{}]);
+
+  const getProduct = () => {
+    fetch(`${server}/product/search${props.location.search}`)
+      .then((data) => data.json())
+      .then((data) => {
+        setProduct(data.data)
+      });
+  };
+  useEffect(() => {
+    getProduct();
+  }, []);
   return (
     <Fragment>
       <Navbar />
       <div className="container-fluid search_container">
         <div className="row">
-          <div className="col-lg-4 col-md-5">
+          {/*    <div className="col-lg-4 col-md-5">
             <Filter />
-          </div>
-          <div className="col-lg-8 col-md-7 product_containers">
+          </div> */}
+          <div className="col-lg-12 col-md-12 product_containers">
             <div className="row">
               {product.map((elem) => (
-                <Product content={elem} classes=" col-lg-6 col-md-12 col-12" />
+                <Product content={elem} classes=" col-lg-4 col-md-6 col-12" />
               ))}
             </div>{" "}
           </div>
@@ -58,4 +48,4 @@ const Home: React.FC = () => {
     </Fragment>
   );
 };
-export default Home;
+export default withRouter(Search);

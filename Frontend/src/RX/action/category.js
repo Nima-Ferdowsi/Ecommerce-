@@ -13,7 +13,6 @@ export const getSubcategoryList = () => {
     );
 
     if (typeof filteredSub[0] !== "undefined") {
-      console.log(filteredSub[0].subCategory);
       await dispatch({
         type: "SET_SUBCATEGORY_LIST",
         payLoad: filteredSub[0].subCategory,
@@ -30,7 +29,6 @@ export const getSubitemList = () => {
     );
     await dispatch({ type: "SET_SUBITEM_LIST", payLoad: filteredItem[0] });
 
-    console.log(filteredItem[0]);
   };
 };
 export const clearSubItem = () => {

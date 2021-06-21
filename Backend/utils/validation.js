@@ -25,8 +25,8 @@ class Validation {
       price: yup.string().required("How much this product will cost?"),
       image: yup.string().required("what is this product image"),
       category_name: yup.string().required("what category should I put your product"),
-      subcategory_name: yup.string().required("what category should I put your product"),
-      subitem_name: yup.string().required("what category should I put your product"),
+      subcategory: yup.string().required("what category should I put your product"),
+      subitem: yup.string().required("what category should I put your product"),
 
     });
     return schema;

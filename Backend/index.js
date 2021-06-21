@@ -6,6 +6,7 @@ var cors = require("cors");
 const connectDb = require("./database/db");
 const user = require("./routes/user");
 const product = require("./routes/product");
+const path=require('path');
 
 const app = express();
 const db = mongoose.connection;
@@ -20,19 +21,20 @@ app.use(cors());
 
 app.use(bodyParser.json({limit:'50mb'}));
 app.use(bodyParser.urlencoded({extended:true, limit:'50mb',parameterLimit: 1000000}))
+app.use(express.static(path.join(__dirname, 'uploads')))
+
+app.get("/uploads/:img",function (req, res) {
+  res.sendFile(`${__dirname}/uploads/${req.params.img}`)
+});
 //**********************End of Setting and Middlewares*************************//
  
 //*******Routes********//
 
-app.get('/',(req,res)=>{
-    console.log('object');
-res.send({s:'s'})
-})
-
-//*****End Of Routes*****//
 
 app.use(user)
 app.use(product)
+//*****End Of Routes*****//
+
 
 //************************Databases*******************************//
 //connect to database

@@ -1,5 +1,5 @@
 const express = require("express");
-const { newProduct } = require("../controller/product");
+const { newProduct, findProductByCategory } = require("../controller/product");
 const { v4: uuidv4 } = require("uuid");
 
 const multer = require("multer");
@@ -22,6 +22,8 @@ var storage = multer.diskStorage({
 const route = express.Router();
 
 route.post("/product/create", [upload.single('image'),newProduct]);
+route.get("/product/search",findProductByCategory);
+
 
  
 module.exports = route;

@@ -24,8 +24,10 @@ const productSchema = new mongoose.Schema({
   subitem: {
     type: String,
   },
- 
+  Features: {
+    type: Array,
+  },
 });
-const Product=mongoose.model('products',productSchema)
+const Product = mongoose.model("products", productSchema);
 
-module.exports=Product
+module.exports = Product;

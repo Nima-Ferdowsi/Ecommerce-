@@ -3,10 +3,22 @@ import { useEffect } from "react";
 import { useState } from "react";
 import category from "../json/category.json";
 import "../css/navbar.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
+import { useHistory } from "react-router-dom";
+import { createBrowserHistory } from "history";
+
 const Navbar: React.FC = () => {
+  interface subInterface {
+    category?: { id?: string; name?: string };
+    subCategory?: any;
+  }
+
   const [scrollPlace, setScroll] = useState<Number | undefined>(0);
-  const [subCategory, setSubCategory] = useState([]);
+  const [subCategory, setSubCategory] = useState<subInterface>({
+    category: {},
+    subCategory: [],
+  });
 
   const navbarWidth = (): void => {
     setScroll(window.scrollY);
@@ -17,9 +29,12 @@ const Navbar: React.FC = () => {
       (elem) => elem.category.name === categoryTitle
     );
     if (typeof filterCategory[0].subCategory == "undefined") {
-      setSubCategory(null);
+      setSubCategory({
+        category: {},
+        subCategory: [],
+      });
     } else {
-      setSubCategory(filterCategory[0].subCategory);
+      setSubCategory(filterCategory[0]);
     }
   };
 
@@ -33,6 +48,7 @@ const Navbar: React.FC = () => {
   if (scrollPlace > 50) {
     contactNav = "nav_disappear";
   }
+  const history = createBrowserHistory({ forceRefresh: true });
 
   return (
     <Fragment>
@@ -72,7 +88,6 @@ const Navbar: React.FC = () => {
         </div>
         <div className="main_navbar">
           <ul className="navbar_links">
-            <li>Home</li>
             <li>
               <div className="drop_down">
                 Category
@@ -82,24 +97,58 @@ const Navbar: React.FC = () => {
                       {category.map((elem, idx) => (
                         <li
                           key={idx}
-                          onMouseEnter={() => getSubCategories(elem.category.name)}
+                          onMouseEnter={() =>
+                            getSubCategories(elem.category.name)
+                          }
                         >
                           {elem.category.name}
                         </li>
                       ))}
                     </ul>
                     <div className="subcategoy_container col-lg-8 col-md-8">
-                      {subCategory !== null
-                        ? subCategory.map((elem, index) => (
-                            <div className="sub_box col-lg-3 col-md-3">
-                              <h1>{elem.sub_title}</h1>
-                              <ul className="sub_list">
-                                {elem.items.map((item: any, idx: any) => (
-                                  <li>{item.item_title}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))
+                      {subCategory.subCategory.length !== 0 ? (
+                        <li
+                          onClick={() =>
+                            history.push(
+                              `/search?category=${subCategory.category.name}`
+                            )
+                          }
+                        >
+                          See All
+                        </li>
+                      ) : null}
+                      {subCategory.subCategory.length !== 0
+                        ? subCategory.subCategory.map(
+                            (elem: any, index: number) => (
+                              <div className="sub_box col-lg-3 col-md-3">
+                                <h1
+                                  onClick={() =>
+                                    history.push(
+                                      `/search?category=${subCategory.category.name}&subcategory=${elem.sub_title}`
+                                    )
+                                  }
+                                  data-category={subCategory.category.name}
+                                >
+                                  {elem.sub_title}
+                                </h1>
+                                <ul className="sub_list">
+                                  {elem.items.map((item: any, idx: number) => (
+                                    <li
+                                      onClick={() =>
+                                        history.push(
+                                          `/search?category=${subCategory.category.name}&subcategory=${elem.sub_title}&subitem=${item.item_title}`
+                                        )
+                                      }
+                                      data-category={subCategory.category.name}
+                                      data-sub={elem.sub_title}
+                                    >
+                                      {item.item_title}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )
+                          )
                         : null}
                     </div>
                   </div>
@@ -107,9 +156,13 @@ const Navbar: React.FC = () => {
               </div>
             </li>
 
-            <li>Cart</li>
-            <li>Contact</li>
+            <li>
+              <Link to="/cart">Cart</Link>
+            </li>
             <li>Login</li>
+            <li>
+              <Link to="/admin/product/create">Admin Panel</Link>
+            </li>
           </ul>
           <div
             style={{
@@ -119,7 +172,7 @@ const Navbar: React.FC = () => {
               alignItems: "center",
             }}
           >
-            <Link to='/' className="logo">
+            <Link to="/" className="logo">
               Selling<span>.</span>
             </Link>
           </div>
@@ -129,4 +182,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

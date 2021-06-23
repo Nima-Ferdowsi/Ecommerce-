@@ -37,10 +37,12 @@
   border-top: none;
   width: 100%;
 }
-.card_footer button {
+.card_footer button ,.card_footer a {
   border: none;
   padding: 15px;
   width: 120px;
+  text-align: center;
+  color: black;
 }
 .card_footer button:nth-child(1) {
   margin-right: 20px;
@@ -48,15 +50,17 @@
   color: white;
   font-weight: 700;
 }
-.card_footer button:nth-child(2) {
+.card_footer a {
   background-color: transparent;
   border: 2px solid black;
   transition: 0.2s all linear;
+  text-decoration: none;
 }
-.card_footer button:nth-child(2):hover {
+.card_footer a:hover {
   background-color: black;
   color: white;
   font-weight: 700;
+  text-decoration: none;
 }
 .product_title {
   font-size: 22px;

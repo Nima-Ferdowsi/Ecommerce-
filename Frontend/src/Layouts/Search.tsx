@@ -16,6 +16,8 @@ const Search: React.FC = (props: any) => {
   const [product, setProduct] = useState([{}]);
 
   const getProduct = () => {
+
+   console.log(props.location.search); 
     fetch(`${server}/product/search${props.location.search}`)
       .then((data) => data.json())
       .then((data) => {

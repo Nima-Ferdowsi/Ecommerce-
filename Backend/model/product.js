@@ -24,8 +24,15 @@ const productSchema = new mongoose.Schema({
   subitem: {
     type: String,
   },
-  Features: {
+  features: {
     type: Array,
+  },
+  createdBy: {
+    type: String,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 const Product = mongoose.model("products", productSchema);

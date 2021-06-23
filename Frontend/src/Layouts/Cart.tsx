@@ -2,8 +2,9 @@ import React, { Fragment, useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { addLocal, getLocal } from "./../utils/localstorage";
+import { withRouter } from 'react-router-dom';
 
-const Cart: React.FC = () => {
+const Cart: React.FC = (props:any) => {
   const style: React.CSSProperties = {
     marginTop: "200px",
   };
@@ -39,13 +40,15 @@ else{
                     <th scope="col"> </th>
                     <th scope="col">Product</th>
                     <th scope="col">Available</th>
-                    <th scope="col" className="text-center">
+                   {/*  <th scope="col" className="text-center">
                       Quantity
-                    </th>
+                    </th> */}
                     <th scope="col" className="text-right">
                       Price
                     </th>
                     <th> </th>
+                    <th> </th>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -56,21 +59,24 @@ else{
                       </td>
                       <td>{elem.title}</td>
                       <td>In stock</td>
-                      <td>
+                    {/*   <td>
                         <input
                           className="form-control"
                           type="number"
                           min='1'
                           defaultValue={1}
                         />
-                      </td>
+                      </td> */}
                       <td className="text-right">{elem.price} €</td>
+                   
+                      <td></td>
                       <td className="text-right">
                         <button className="btn btn-sm btn-danger"
                         onClick={()=>removeFromCart(elem._id)}>
                           <i className="fa fa-trash" />{" "}
                         </button>{" "}
                       </td>
+
                     </tr>
                   ))}
 
@@ -93,7 +99,7 @@ else{
           <div className="col mb-2">
             <div className="row">
               <div className="col-sm-12  col-md-6">
-                <button className="btn btn-block btn-light">
+                <button  onClick={()=>props.history.push('/search')} className="btn btn-block btn-light">
                   Continue Shopping
                 </button>
               </div>
@@ -111,4 +117,4 @@ else{
   );
 };
 
-export default Cart;
+export default withRouter(Cart);

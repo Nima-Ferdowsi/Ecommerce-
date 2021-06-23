@@ -1,5 +1,5 @@
 const express = require("express");
-const { newProduct, findProductByCategory } = require("../controller/product");
+const { newProduct, findProductByCategory, findProductById } = require("../controller/product");
 const { v4: uuidv4 } = require("uuid");
 
 const multer = require("multer");
@@ -23,6 +23,8 @@ const route = express.Router();
 
 route.post("/product/create", [upload.single('image'),newProduct]);
 route.get("/product/search",findProductByCategory);
+route.get("/product/:id",findProductById);
+
 
 
  

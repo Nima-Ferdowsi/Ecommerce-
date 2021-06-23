@@ -13,6 +13,8 @@ import {
 import { server } from "../config/server.json";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { getLocal } from "./../utils/localstorage";
+import { Redirect } from 'react-router';
 
 const AddProduct: React.FC = () => {
   const dispatch = useDispatch();
@@ -37,37 +39,38 @@ const AddProduct: React.FC = () => {
   };
 
   const createProduct = () => {
-   if(img){
-    var fd = new FormData();
-    fd.append("title", title);
-    fd.append("price", price);
-    fd.append("category_obj", JSON.stringify(selectedCategory));
-    fd.append("subcategory", selectedSubCategory);
-    fd.append("subitem", subItem);
-    fd.append("image", img);
-    axios({
-      method: "post",
-      url: `${server}/product/create`,
-      data: fd,
-      headers: { "Content-Type": "multipart/form-data" },
-    })
-      .then(({ data }) => {
-        //handle success
-        if (data.status === 200) {
-          toast.success("Post has been created");
-        } else if ((data.message = "validation error")) {
-          toast.warn(data.detailes[0]);
-        }
-      })
-      .catch(() => {
-        //handle error
-        toast.error('Sorry there is an error from the server');
-      });
-   }
-   else{
-    toast.warn('choose image first');
+    if (img) {
+      var fd = new FormData();
+      fd.append("title", title);
+      fd.append("price", price);
+      fd.append("category_obj", JSON.stringify(selectedCategory));
+      fd.append("subcategory", selectedSubCategory);
+      fd.append("subitem", subItem);
+      fd.append("image", img);
+      fd.append("features_obj", JSON.stringify(features));
+      fd.append("createdBy", getLocal("user").result.email);
 
-   }
+      axios({
+        method: "post",
+        url: `${server}/product/create`,
+        data: fd,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+        .then(({ data }) => {
+          //handle success
+          if (data.status === 200) {
+            toast.success("Post has been created");
+          } else if ((data.message = "validation error")) {
+            toast.warn(data.detailes[0]);
+          }
+        })
+        .catch(() => {
+          //handle error
+          toast.error("Sorry there is an error from the server");
+        });
+    } else {
+      toast.warn("choose image first");
+    }
   };
   const newFeatures = () => {
     const data = { key: featuresKey, val: featuresVal };
@@ -85,7 +88,11 @@ const AddProduct: React.FC = () => {
   useEffect(() => {
     dispatch(getSubitemList());
   }, [selectedSubCategory]);
-
+  
+  const user = getLocal("user");
+  if (user.length === 0) {
+    return <Redirect to="/login" />;
+  }
   return (
     <Fragment>
       <Helmet>
@@ -179,7 +186,6 @@ const AddProduct: React.FC = () => {
                 </select>
               </div>
             </div>
-    
           </div>
 
           <div className="col-lg-6 col-md-6 col-12 upload_container">

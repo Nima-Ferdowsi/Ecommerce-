@@ -7,6 +7,7 @@ import Signup from "./Layouts/SignUp";
 import { ToastContainer } from 'react-toastify';
 import AddProduct from './components/addProduct';
 import Cart from "./Layouts/Cart";
+import ProductPage from './Layouts/ProductPage';
 
 
 const App: React.FC = () => {
@@ -18,7 +19,8 @@ const App: React.FC = () => {
     <Route exact path='/login' component={Login} /> 
     <Route exact path='/signup' component={Signup} />
     <Route exact path='/cart' component={Cart} /> 
- 
+    <Route exact path='/product/:id' component={ProductPage} /> 
+
     <Route exact path='/admin/product/create' component={AddProduct} /> 
 
      </Switch>

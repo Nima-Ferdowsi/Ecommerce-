@@ -7,19 +7,25 @@ import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 import { useHistory } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import SideBar from "./Sidebar";
+import { getLocal } from "./../utils/localstorage";
+import { logout } from "../utils/functions";
 
-const Navbar: React.FC = () => {
-  interface subInterface {
-    category?: { id?: string; name?: string };
-    subCategory?: any;
-  }
+export interface subInterface {
+  category?: { id?: string; name?: string };
+  subCategory?: any;
+}
 
+const Navbar: React.FC = (prop:any) => {
   const [scrollPlace, setScroll] = useState<Number | undefined>(0);
   const [subCategory, setSubCategory] = useState<subInterface>({
     category: {},
     subCategory: [],
   });
 
+  const [openSidebar, setOpenSidebar] = useState(false);
+  const [user, setUser] = useState(getLocal("user"));
+console.log(user.length);
   const navbarWidth = (): void => {
     setScroll(window.scrollY);
   };
@@ -159,11 +165,24 @@ const Navbar: React.FC = () => {
             <li>
               <Link to="/cart">Cart</Link>
             </li>
-            <li>Login</li>
+            <li>
+              {user.length==0 ? (
+                <Link to="/login">Login</Link>
+              ) : (
+                <li onClick={()=>logout(prop.history)}>Logout</li>
+              )}
+            </li>
             <li>
               <Link to="/admin/product/create">Admin Panel</Link>
             </li>
           </ul>
+          <span
+            className="sidebar_icon"
+            onClick={() => setOpenSidebar(!openSidebar)}
+          >
+            <i className="fa fa-bars"></i>
+          </span>
+
           <div
             style={{
               width: "35%",
@@ -178,6 +197,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
+      <SideBar open={openSidebar} setOpen={setOpenSidebar} />
     </Fragment>
   );
 };

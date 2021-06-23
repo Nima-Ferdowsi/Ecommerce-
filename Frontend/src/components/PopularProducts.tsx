@@ -34,7 +34,7 @@ const PopularProducts: React.FC = () => {
         <div className="container">
           <div className="row">
             {product.map((elem) => (
-             <Product content={elem} classes=' col-lg-4 col-md-6'/>
+             <Product content={elem} classes=' col-lg-4 col-md-6 '/>
             ))}
           </div>
         </div>

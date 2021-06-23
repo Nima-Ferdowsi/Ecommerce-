@@ -36,7 +36,8 @@
     "category": {
       "id": "f571b5b2-d45b-4f95-8bad-8a4954d44d7b",
       "name": "Man"
-    },  "subCategory": [
+    },
+    "subCategory": [
       {
         "sub_title": "Clothing",
         "items": [
@@ -57,18 +58,66 @@
     "category": {
       "id": "51ed3695-edf0-463f-9a2d-c526b6091a47",
       "name": "Child"
-    }
+    },
+    "subCategory": [
+      {
+        "sub_title": "Clothing",
+        "items": [
+          { "item_title": "Dress" },
+          { "item_title": "T-Shirt" },
+          { "item_title": "Shirt" },
+          { "item_title": "Jeans" },
+          { "item_title": "Trousers" },
+          { "item_title": "Blouse" },
+          { "item_title": "Jacket" },
+          { "item_title": "Skirt" },
+          { "item_title": "Beach Wear" }
+        ]
+      }
+    ]
   },
   {
-    "category":{
+    "category": {
       "id": "057a6441-e25d-4ae8-a7c4-293b52578ea0",
       "name": "Bag"
-    }
+    },
+    "subCategory": [
+      {
+        "sub_title": "Clothing",
+        "items": [
+          { "item_title": "Dress" },
+          { "item_title": "T-Shirt" },
+          { "item_title": "Shirt" },
+          { "item_title": "Jeans" },
+          { "item_title": "Trousers" },
+          { "item_title": "Blouse" },
+          { "item_title": "Jacket" },
+          { "item_title": "Skirt" },
+          { "item_title": "Beach Wear" }
+        ]
+      }
+    ]
   },
   {
     "category": {
       "id": "74246d8a-588f-4ce2-bbd3-d0ed25b72936",
       "name": "Watches & accesories"
-    }
+    },
+    "subCategory": [
+      {
+        "sub_title": "Clothing",
+        "items": [
+          { "item_title": "Dress" },
+          { "item_title": "T-Shirt" },
+          { "item_title": "Shirt" },
+          { "item_title": "Jeans" },
+          { "item_title": "Trousers" },
+          { "item_title": "Blouse" },
+          { "item_title": "Jacket" },
+          { "item_title": "Skirt" },
+          { "item_title": "Beach Wear" }
+        ]
+      }
+    ]
   }
 ]

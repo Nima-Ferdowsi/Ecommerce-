@@ -178,6 +178,15 @@ color:orange
 .drop_down:hover .drop_down_content {
   display: block;
 }
+.sidebar_icon{
+  display: none;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 35px;
+  cursor: pointer;
+}
 @media only screen and (max-width: 760px) {
   .contact_link a span {
     display: none;
@@ -188,7 +197,11 @@ color:orange
   .logo{
     margin-left: 45px;
   }
+  .sidebar_icon{display: block !important ;
+  
+  }
 }
+
 @media only screen and (max-width: 820px) {
   .subcategoy_container{
     left: 30%;
@@ -196,5 +209,6 @@ color:orange
   .sub_box{
     margin-left: 20;
   }
+
  
 }

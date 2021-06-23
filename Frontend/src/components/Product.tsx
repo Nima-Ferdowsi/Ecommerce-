@@ -2,6 +2,8 @@ import React from "react";
 import { server } from "../config/server.json";
 import { addLocal, getLocal } from "./../utils/localstorage";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+
 export interface ProductProps {
   content: any;
   classes?: string;
@@ -44,14 +46,14 @@ const Product: React.FC<ProductProps> = ({ content, classes }) => {
             $120
           </del> */}
           </div>
-          <div className="row">
+          <div className="row btn_row">
             <button onClick={() => addToCart(content)}>Cart</button>
-            <button>View</button>
+            <Link to={`/product/${content._id}`}>View</Link> 
           </div>
         </div>
       </div>
     </div>
-  );
+  ); 
 };
 
 export default Product;

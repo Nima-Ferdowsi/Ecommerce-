@@ -20,3 +20,7 @@ export const getOS=()=> {
 
     return os;
   }
+  export const logout=(callback)=>{
+    localStorage.removeItem('user')
+    callback.push('/login')
+  }

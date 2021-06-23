@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
 import ItemImg from "../img/xhero_2.jpg.pagespeed.ic.CMlBvkznrC.webp";
 import "../css/Carusel.css";
-const Carousel: React.FC = () => {
+import { withRouter } from 'react-router-dom';
+const Carousel: React.FC = (props:any) => {
   return (
     <Fragment>
       <div className="carousel  c slide carousel-fade" data-ride="carousel">
@@ -13,7 +14,7 @@ const Carousel: React.FC = () => {
             <span>Shop With Us</span>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut impedit eum dolore nostrum officia doloribus deleniti iusto earum, explicabo, voluptatum debitis .</p>
             <div className='row'>
-                <button>Shop Now</button>
+                <button  onClick={()=>props.history.push('/search')}>Shop Now</button>
                 <button>Club MemberShip</button>
             </div>
             </div>
@@ -24,4 +25,4 @@ const Carousel: React.FC = () => {
   );
 };
 
-export default Carousel;
+export default withRouter(Carousel);

@@ -10,18 +10,16 @@ import "../css/search.css";
 import Product from "../components/Product";
 import { withRouter } from "react-router";
 import { server } from "../config/server.json";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 const Search: React.FC = (props: any) => {
   const [product, setProduct] = useState([{}]);
 
   const getProduct = () => {
-
-   console.log(props.location.search); 
     fetch(`${server}/product/search${props.location.search}`)
       .then((data) => data.json())
       .then((data) => {
-        setProduct(data.data)
+        setProduct(data.data);
       });
   };
   useEffect(() => {
@@ -30,22 +28,27 @@ const Search: React.FC = (props: any) => {
   return (
     <Fragment>
       <Navbar />
-      <div className="container-fluid search_container">
-        <div className="row">
-          {/*    <div className="col-lg-4 col-md-5">
+      {product.length === 0 ? (
+        <div className='not_found' >
+          <span className='text-danger'>I am sorry no Product found in this search </span>
+        </div>
+      ) : (
+        <div className="container-fluid search_container">
+          <div className="row">
+            {/*    <div className="col-lg-4 col-md-5">
             <Filter />
           </div> */}
-          <div className="col-lg-12 col-md-12 product_containers">
-            <div className="row">
-              {product.map((elem) => (
-                <Product content={elem} classes=" col-lg-4 col-md-6 col-12" />
-              ))}
-            </div>{" "}
+            <div className="col-lg-12 col-md-12 product_containers">
+              <div className="row">
+                {product.map((elem) => (
+                  <Product content={elem} classes=" col-lg-4 col-md-6 col-12" />
+                ))}
+              </div>{" "}
+            </div>
           </div>
         </div>
-      </div>
-      {/*       <div style={{ height: "100vw" }} />
-       */}{" "}
+      )}
+
       <Footer classes={true} />
     </Fragment>
   );

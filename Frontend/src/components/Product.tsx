@@ -29,8 +29,11 @@ const Product: React.FC<ProductProps> = ({ content, classes }) => {
   return (
     <div className={`product ${classes}`}>
       <div className="content">
-        <img src={`${server}/uploads/${content.image}`} />
-        <div className="card_footer">
+{/*         <img src={`${server}/uploads/${content.image}`} />
+ */}     
+         <img src={`${content.image}`} />
+
+    <div className="card_footer">
           <h2 className="product_title mt-2">{content.title}</h2>
           <div className="row">
             <span

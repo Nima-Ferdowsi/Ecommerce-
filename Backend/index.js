@@ -21,7 +21,7 @@ app.use(cors());
 
 app.use(bodyParser.json({limit:'50mb'}));
 app.use(bodyParser.urlencoded({extended:true, limit:'50mb',parameterLimit: 1000000}))
-app.use(express.static(path.join(__dirname, 'uploads')))
+app.use(express.static(path.join(__dirname, 'uploads'))) 
 
 app.get("/uploads/:img",function (req, res) {
   res.sendFile(`${__dirname}/uploads/${req.params.img}`)
@@ -31,14 +31,14 @@ app.get("/uploads/:img",function (req, res) {
 //*******Routes********//
 
 
-app.use(user)
-app.use(product)
+app.use(user) 
+app.use(product) 
 //*****End Of Routes*****//
 
 
 //************************Databases*******************************//
 //connect to database
-connectDb("mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false");
+connectDb(process.env.MAIN_DB_URI);
 // when database is connected
 db.once("open", () => {
   console.log("Database Is Now Running");
@@ -49,4 +49,4 @@ db.once("open", () => {
 const port=process.env.PORT||5000
 
 app.listen(port,()=>console.log(port)); 
-  
+   

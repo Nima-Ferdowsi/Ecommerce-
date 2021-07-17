@@ -14,3 +14,18 @@
     display: flex;
     justify-content: center;
 }
+.not_found{
+    position: relative;
+    margin-top:1px;
+    height:75vh;
+    width: 100vw;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    color: black;
+}
+.not_found span{
+    font-size: 25px;
+
+    padding: 20px;
+}

@@ -9,11 +9,12 @@ import {server} from '../config/server.json'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { withRouter } from 'react-router-dom';
+import { RootState } from "../RX/store/RootState";
 const Login:React.FC = (props:any) => {
   const dispatch=useDispatch()
   
-  const email=useSelector((state:any)=>state.email)
-  const pass=useSelector((state:any)=>state.pass)
+  const email=useSelector((state:RootState)=>state.email)
+  const pass=useSelector((state:RootState)=>state.pass)
 
 
 
@@ -52,8 +53,6 @@ dispatch(reset('first'))
 dispatch(reset('last'))
 dispatch(reset('pass'))
 dispatch(reset('email'))
-
-
 },[])
 
   return (

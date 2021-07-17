@@ -5,16 +5,22 @@ import { useEffect } from "react";
 
 import category from "../json/category.json";
 import { subInterface } from "./Navbar";
+import { createBrowserHistory } from "history";
+import { getLocal } from './../utils/localstorage';
+import { logout } from "../utils/functions";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 
 interface sideBarInterface {
   open: boolean;
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
-const SideBar: React.FC<sideBarInterface> = (props) => {
+const SideBar: React.FC<sideBarInterface &RouteComponentProps> = (props) => {
   const [subCategory, setSubCategory] = useState<subInterface>({
     category: {},
     subCategory: [],
   });
+  const [user, setUser] = useState(getLocal("user"));
+
   let classes = "";
 
   if (props.open) {
@@ -36,12 +42,11 @@ const SideBar: React.FC<sideBarInterface> = (props) => {
     var toggler = document.querySelectorAll(".carets");
     var i;
     for (i = 0; i < toggler.length; i++) {
-        toggler[i].addEventListener("click", function (this: any) {
- 
-          this.nextSibilng.classList.toggle("open");
-        });
+      toggler[i].addEventListener("click", function (this: any) {
+        this.nextSibilng.classList.toggle("open");
+      });
     }
-  }; 
+  };
   const getSubCategories = (categoryTitle: string) => {
     const filterCategory = category.filter(
       (elem) => elem.category.name === categoryTitle
@@ -58,15 +63,20 @@ const SideBar: React.FC<sideBarInterface> = (props) => {
 
   useEffect(() => {
     openTreeview();
-    
   }, []);
+  const history = createBrowserHistory({ forceRefresh: true });
 
   return (
     <Fragment>
       <div className={`sidebar_container  ${classes}`}>
         <div className="sidebar ">
           <ul className="mobile_menu_items">
-            <li>Login</li>
+            <li> {user.length==0 ? (
+                <Link to="/login">Login</Link>
+              ) : (
+                <li onClick={()=>logout(props.history)}>Logout</li>
+              )}</li>
+            
             <li>
               <Link to="/admin/product/create">Admin Panel</Link>
             </li>
@@ -87,19 +97,37 @@ const SideBar: React.FC<sideBarInterface> = (props) => {
                     </a>
                     <ul className="nested">
                       {subCategory.subCategory.length !== 0 ? (
-                        <li>See All</li>
+                        <li
+                          onClick={() =>
+                            history.push(
+                              `/search?category=${subCategory.category.name}`
+                            )
+                          }
+                        >
+                          See All
+                        </li>
                       ) : null}
 
                       {subCategory.subCategory.length !== 0
                         ? subCategory.subCategory.map(
                             (elem: any, index: number) => (
-                              <li   data-category={subCategory.category.name}>
-                                <a  className="caret">{elem.sub_title}</a>
+                              <li
+                                onClick={() =>
+                                  history.push(
+                                    `/search?category=${subCategory.category.name}&subcategory=${elem.sub_title}`
+                                  )
+                                }
+                              >
+                                <a className="caret">{elem.sub_title}</a>
                                 <ul className="">
                                   {elem.items.map((item: any, idx: number) => (
                                     <li
-                                      data-category={subCategory.category.name}
-                                      data-sub={elem.sub_title}
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        history.push(
+                                          `/search?category=${subCategory.category.name}&subcategory=${elem.sub_title}&subitem=${item.item_title}`
+                                        );
+                                      }}
                                     >
                                       {item.item_title}
                                     </li>
@@ -127,4 +155,4 @@ const SideBar: React.FC<sideBarInterface> = (props) => {
   );
 };
 
-export default SideBar;
+export default withRouter(SideBar);

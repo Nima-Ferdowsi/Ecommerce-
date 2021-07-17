@@ -1,56 +1,59 @@
 const mongoose = require("mongoose");
 const Product = require("../model/product");
+const { UploadImage, createProduct } = require("../utils/Upload");
 const Validation = require("../utils/validation");
 
 exports.newProduct = async (req, res) => {
-  const {
-    title,
-    price,
-    category_obj,
-    subcategory,
-    subitem,
-    features_obj,
-    createdBy,
-  } = req.body;
-
-  const image = await req.file.filename;
-  const category = JSON.parse(category_obj);
-  const features = JSON.parse(features_obj);
-
-  Validation.productValidation()
-    .validate({
+  try {
+    const {
       title,
       price,
-      image,
-      category_name: category.name,
+      category_obj,
       subcategory,
       subitem,
-    })
-    .then(() => {
-      let values = {
+      features_obj,
+      createdBy,
+    } = req.body;
+
+    const image = req.file.path;
+    const category = JSON.parse(category_obj);
+    const features = JSON.parse(features_obj);
+
+    Validation.productValidation()
+      .validate({
         title,
         price,
-        image: req.file.filename,
-        category,
+        image,
+        category_name: category.name,
         subcategory,
         subitem,
-        features,
-        createdBy,
-      };
+      })
+      .then(() => {
+        UploadImage(req, res)
+          .then((data) => {
+            let values = {
+              title,
+              price,
+              image: data.url,
+              category,
+              subcategory,
+              subitem,
+              features,
+              createdBy,
+            };
 
-      Product.create(values)
-        .then((data) => {
-          res
-            .status(200)
-            .send({ status: 200, message: "success", detaile: data });
-        })
-        .catch((err) => {
-          res.send({ message: "err", detaile: err });
-        });
-    })
-    .catch((err) => {
-      res.send({ message: "validation error", detailes: err.errors });
-    });
+            createProduct(res, values);
+          })
+          .catch((err) => {
+            res.send({ message: "upload image failed", detaile: err });
+          });
+      })
+      .catch((err) => {
+        res.send({ message: "validation error", detailes: err.errors });
+      });
+  } catch (error) {
+    res.send({status:500})
+  }
 };
 
 exports.findProductByCategory = (req, res) => {
@@ -74,6 +77,7 @@ exports.findProductByCategory = (req, res) => {
       res.send({ status: 500, err });
     });
 };
+
 exports.findProductById = async (req, res) => {
   if (mongoose.Types.ObjectId.isValid(req.params.id)) {
     const data = await Product.findById(req.params.id);
@@ -89,5 +93,4 @@ exports.findProductById = async (req, res) => {
   } else {
     res.send({ status: 404, message: "not Found" });
   }
-
 };

@@ -14,15 +14,15 @@ import { server } from "../config/server.json";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { getLocal } from "./../utils/localstorage";
-import { Redirect } from 'react-router';
-
+import { Redirect } from "react-router";
+import { RootState } from "../RX/store/RootState";
 const AddProduct: React.FC = () => {
   const dispatch = useDispatch();
-  const categoryList = useSelector((state: any) => state.categoryList);
-  const subcategoryList = useSelector((state: any) => state.subcategoryList);
-  const selectedCategory = useSelector((state: any) => state.selectedCategory);
-  const selectedSubCategory = useSelector((state: any) => state.selectedSub);
-  const subItemList = useSelector((state: any) => state.subItemList);
+  const categoryList = useSelector((state:RootState) => state.categoryList);
+  const subcategoryList = useSelector((state: RootState) => state.subcategoryList);
+  const selectedCategory = useSelector((state: RootState) => state.selectedCategory);
+  const selectedSubCategory = useSelector((state: RootState) => state.selectedSub);
+  const subItemList = useSelector((state: RootState) => state.subItemList);
 
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
@@ -39,6 +39,7 @@ const AddProduct: React.FC = () => {
   };
 
   const createProduct = () => {
+
     if (img) {
       var fd = new FormData();
       fd.append("title", title);
@@ -60,8 +61,15 @@ const AddProduct: React.FC = () => {
           //handle success
           if (data.status === 200) {
             toast.success("Post has been created");
-          } else if ((data.message = "validation error")) {
+          }
+          else if (data.status === 500) {
+            toast.error("Sorry there is an error from the server");
+          } 
+          else if ((data.message = "validation error")) {
             toast.warn(data.detailes[0]);
+          }
+          else if ((data.message = "upload image failed")) {
+            toast.error('there is a problem with uploading image');
           }
         })
         .catch(() => {
@@ -71,12 +79,17 @@ const AddProduct: React.FC = () => {
     } else {
       toast.warn("choose image first");
     }
+  
   };
   const newFeatures = () => {
     const data = { key: featuresKey, val: featuresVal };
     setFeatures([...features, data]);
   };
+
+
   useEffect(() => {
+
+    //get categoryList
     dispatch(getCategoryList());
   }, []);
 
@@ -88,7 +101,7 @@ const AddProduct: React.FC = () => {
   useEffect(() => {
     dispatch(getSubitemList());
   }, [selectedSubCategory]);
-  
+
   const user = getLocal("user");
   if (user.length === 0) {
     return <Redirect to="/login" />;
@@ -146,6 +159,7 @@ const AddProduct: React.FC = () => {
                     );
                   }}
                 >
+                  <option value="">default</option>
                   {categoryList.map((elem: any) => (
                     <option value={elem.category.id}>
                       {elem.category.name}
@@ -162,7 +176,7 @@ const AddProduct: React.FC = () => {
                     dispatch(selectSub(e.target.value));
                   }}
                 >
-                  <option>'default'</option>
+                  <option value="">default</option>
 
                   {subcategoryList.map((elem: any) => (
                     <option value={elem.sub_title}>{elem.sub_title}</option>
@@ -176,6 +190,8 @@ const AddProduct: React.FC = () => {
                   className="custom-select"
                   onChange={(e) => setSubItem(e.target.value)}
                 >
+                  <option value="">default</option>
+
                   {"items" in subItemList
                     ? subItemList.items.map((elem: any) => (
                         <option value={elem.item_title}>

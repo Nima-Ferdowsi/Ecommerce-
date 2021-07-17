@@ -55,7 +55,7 @@ const ProductPage: React.FC = (props: any) => {
         <div className="row">
           <div className="col-lg-6 col-md-6">
             <div className="product_view_img_container">
-              <img className="product_view_img" src={`${server}/uploads/${product.image}`}  />
+              <img className="product_view_img" src={`${product.image}`}  />
             </div>
           </div>
           <div className="col-lg-6 col-md-6" style={{ marginTop: "40px" }}>

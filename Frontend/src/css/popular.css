@@ -3,6 +3,7 @@
   width: 100vw;
   padding-top: 90px;
   padding-bottom: 80px;
+  overflow-x: hidden;
 }
 
 .popular_container h5 {
@@ -71,4 +72,15 @@
 }
 .card_footer .fa-star {
   margin-right: 75px;
+}
+.no_popular{
+  height: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.no_popular span{
+  font-size: 30px;
+
 }

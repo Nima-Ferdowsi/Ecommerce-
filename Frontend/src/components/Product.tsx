@@ -3,7 +3,9 @@ import { server } from "../config/server.json";
 import { addLocal, getLocal } from "./../utils/localstorage";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-
+import { Img } from "react-image";
+import ScaleLoader from 'react-spinners/ScaleLoader'
+import ImgLoader from "./ImgLoader";
 export interface ProductProps {
   content: any;
   classes?: string;
@@ -31,8 +33,8 @@ const Product: React.FC<ProductProps> = ({ content, classes }) => {
       <div className="content">
 {/*         <img src={`${server}/uploads/${content.image}`} />
  */}     
-         <img src={`${content.image}`} />
-
+{/*          <img src={`${content.image}`} />
+ */}     <ImgLoader img={content.image}/>
     <div className="card_footer">
           <h2 className="product_title mt-2">{content.title}</h2>
           <div className="row">

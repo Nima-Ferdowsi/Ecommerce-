@@ -118,6 +118,28 @@ body {
 select.form-control{
   color: white;
 }
+.upload_percent_container{
+  z-index: 1000;
+  position: fixed;
+  top: 2vw;
+  left: 50%;
+  transform: translateX(-50%);
+  height: fit-content;
+  width: 25vw;
+/*   background-color: rgb(157, 201, 157);
+ */  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.upload_percent_container .progress{
+
+  width: 70%;
+  height: 80px;
+
+}
+.progress-bar{
+  background-color: rgb(132, 202, 132);
+}
 
 @media only screen and (max-width:800px){
   body{
@@ -138,6 +160,9 @@ select.form-control{
   .add_btn{margin-right:70px; width: 90%;}
   .btn-success{
     margin-right:0; width: 90%;
+  }
+  .upload_percent_container{
+    width: 60vw;
   }
   
 }

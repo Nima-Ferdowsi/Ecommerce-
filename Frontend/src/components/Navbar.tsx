@@ -25,6 +25,7 @@ const Navbar: React.FC = (prop:any) => {
 
   const [openSidebar, setOpenSidebar] = useState(false);
   const [user, setUser] = useState(getLocal("user"));
+  
   const navbarWidth = (): void => {
     setScroll(window.scrollY);
   };
@@ -44,6 +45,7 @@ const Navbar: React.FC = (prop:any) => {
   };
 
   useEffect(() => {
+
     window.onscroll = () => {
       navbarWidth();
     };

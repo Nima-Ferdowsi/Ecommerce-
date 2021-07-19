@@ -8,6 +8,7 @@ import { withRouter } from "react-router";
 import { useEffect } from "react";
 import { addLocal, getLocal } from './../utils/localstorage';
 import { toast } from 'react-toastify';
+import ImgLoader from "../components/ImgLoader";
 const ProductPage: React.FC = (props: any) => {
   const [product, setProduct] = useState({
     features: [{key:'',val:''}],
@@ -55,7 +56,8 @@ const ProductPage: React.FC = (props: any) => {
         <div className="row">
           <div className="col-lg-6 col-md-6">
             <div className="product_view_img_container">
-              <img className="product_view_img" src={`${product.image}`}  />
+{/*               <img className="product_view_img" src={`${product.image}`}  />
+ */}              <ImgLoader classes='"product_view_img"' img={product.image}/>
             </div>
           </div>
           <div className="col-lg-6 col-md-6" style={{ marginTop: "40px" }}>

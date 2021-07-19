@@ -5,7 +5,7 @@ import '../css/filter.css'
  
 const Filter: React.FC= () => {
 
-const [filterToggle,setFilterToggle]=useState(false)
+const [filterToggle,setFilterToggle]=useState<boolean>(false)
 
 let classes:string;
 

@@ -52,6 +52,7 @@ exports.newProduct = async (req, res) => {
         res.send({ message: "validation error", detailes: err.errors });
       });
   } catch (error) {
+    console.log(error);
     res.send({status:500})
   }
 };

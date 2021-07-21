@@ -51,6 +51,23 @@
           { "item_title": "Skirt" },
           { "item_title": "Beach Wear" }
         ]
+      },
+      {
+        "sub_title": "Shoe",
+        "items": [
+          { "item_title": "Sport Shoe" },
+          { "item_title": "Sneakers" },
+          { "item_title": "Casual Shoes" },
+          { "item_title": "Slipers" }
+        ]
+      },
+      {
+        "sub_title": "UnderWear",
+        "items": [
+          { "item_title": "Socks" },
+          { "item_title": "Boxer" },
+          { "item_title": "Pyjamas" }
+        ]
       }
     ]
   },
@@ -66,12 +83,10 @@
           { "item_title": "Dress" },
           { "item_title": "T-Shirt" },
           { "item_title": "Shirt" },
-          { "item_title": "Jeans" },
           { "item_title": "Trousers" },
           { "item_title": "Blouse" },
-          { "item_title": "Jacket" },
-          { "item_title": "Skirt" },
-          { "item_title": "Beach Wear" }
+          { "item_title": "Baby Shoes" },
+          { "item_title": "Baby Sets" }
         ]
       }
     ]
@@ -83,17 +98,21 @@
     },
     "subCategory": [
       {
-        "sub_title": "Clothing",
+        "sub_title": "Man",
         "items": [
-          { "item_title": "Dress" },
-          { "item_title": "T-Shirt" },
-          { "item_title": "Shirt" },
-          { "item_title": "Jeans" },
-          { "item_title": "Trousers" },
-          { "item_title": "Blouse" },
-          { "item_title": "Jacket" },
-          { "item_title": "Skirt" },
-          { "item_title": "Beach Wear" }
+          { "item_title": "Backpack" },
+          { "item_title": "Messanger bag" },
+          { "item_title": "Wallet" },
+          { "item_title": "Sport Bag" }
+        ]
+      },
+      {
+        "sub_title": "Woman ",
+        "items": [
+          { "item_title": "Backpack" },
+          { "item_title": "Shoulder bag" },
+          { "item_title": "Wallet" },
+          { "item_title": "Sport Bag" }
         ]
       }
     ]
@@ -107,15 +126,11 @@
       {
         "sub_title": "Clothing",
         "items": [
-          { "item_title": "Dress" },
-          { "item_title": "T-Shirt" },
-          { "item_title": "Shirt" },
-          { "item_title": "Jeans" },
-          { "item_title": "Trousers" },
-          { "item_title": "Blouse" },
-          { "item_title": "Jacket" },
-          { "item_title": "Skirt" },
-          { "item_title": "Beach Wear" }
+          { "item_title": "Sunglass" },
+          { "item_title": "Watch" },
+          { "item_title": "Ring" },
+          { "item_title": "bracelet" },
+          { "item_title": "neckless" }
         ]
       }
     ]

@@ -16,7 +16,7 @@ export interface subInterface {
   subCategory?: any;
 }
 
-const Navbar: React.FC = (prop:any) => {
+const Navbar: React.FC = (prop: any) => {
   const [scrollPlace, setScroll] = useState<Number | undefined>(0);
   const [subCategory, setSubCategory] = useState<subInterface>({
     category: {},
@@ -25,7 +25,7 @@ const Navbar: React.FC = (prop:any) => {
 
   const [openSidebar, setOpenSidebar] = useState(false);
   const [user, setUser] = useState(getLocal("user"));
-  
+
   const navbarWidth = (): void => {
     setScroll(window.scrollY);
   };
@@ -45,7 +45,6 @@ const Navbar: React.FC = (prop:any) => {
   };
 
   useEffect(() => {
-
     window.onscroll = () => {
       navbarWidth();
     };
@@ -101,6 +100,7 @@ const Navbar: React.FC = (prop:any) => {
                 <div className="drop_down_content">
                   <div className="row">
                     <ul className="category_list col-lg-3 col-md-3">
+                      <li onClick={() => history.push(`/search`)}>See all</li>
                       {category.map((elem, idx) => (
                         <li
                           key={idx}
@@ -167,10 +167,10 @@ const Navbar: React.FC = (prop:any) => {
               <Link to="/cart">Cart</Link>
             </li>
             <li>
-              {user.length==0 ? (
+              {user.length == 0 ? (
                 <Link to="/login">Login</Link>
               ) : (
-                <li onClick={()=>logout(prop.history)}>Logout</li>
+                <li onClick={() => logout(prop.history)}>Logout</li>
               )}
             </li>
             <li>

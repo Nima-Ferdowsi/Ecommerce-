@@ -159,8 +159,13 @@ color:orange
   font-size: 20px;
 }
 .sub_list{
-  width: fit-content;
- 
+  width: fit-content; 
+}
+.sub_list li{
+  margin-top: 10px;
+}
+.sub_list li:hover{
+  color: orangered;
 }
 .drop_down_content{
   display: none;

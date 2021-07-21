@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import category from "../json/category.json";
 import { subInterface } from "./Navbar";
 import { createBrowserHistory } from "history";
-import { getLocal } from './../utils/localstorage';
+import { getLocal } from "./../utils/localstorage";
 import { logout } from "../utils/functions";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
@@ -14,7 +14,7 @@ interface sideBarInterface {
   open: boolean;
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
-const SideBar: React.FC<sideBarInterface &RouteComponentProps> = (props) => {
+const SideBar: React.FC<sideBarInterface & RouteComponentProps> = (props) => {
   const [subCategory, setSubCategory] = useState<subInterface>({
     category: {},
     subCategory: [],
@@ -71,12 +71,15 @@ const SideBar: React.FC<sideBarInterface &RouteComponentProps> = (props) => {
       <div className={`sidebar_container  ${classes}`}>
         <div className="sidebar ">
           <ul className="mobile_menu_items">
-            <li> {user.length==0 ? (
+            <li>
+              {" "}
+              {user.length == 0 ? (
                 <Link to="/login">Login</Link>
               ) : (
-                <li onClick={()=>logout(props.history)}>Logout</li>
-              )}</li>
-            
+                <li onClick={() => logout(props.history)}>Logout</li>
+              )}
+            </li>
+
             <li>
               <Link to="/admin/product/create">Admin Panel</Link>
             </li>
@@ -87,6 +90,7 @@ const SideBar: React.FC<sideBarInterface &RouteComponentProps> = (props) => {
             <li>
               <a className="caret"> category</a>
               <ul className="nested">
+                <li onClick={(e)=>history.push(`/search`)}>See All</li>
                 {category.map((elem, idx) => (
                   <li key={idx}>
                     <a

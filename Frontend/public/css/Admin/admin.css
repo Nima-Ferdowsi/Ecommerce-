@@ -1,0 +1,89 @@
+body {
+    background-color: #f8f9fa;
+  }
+  .top {
+    width: 100vw;
+    height: 320px;
+    background-color: #596cff;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  .admin_container {
+    width: 100vw;
+    height:  100%;
+    padding-bottom: 20px;
+  }
+  .chart {
+    position: relative;
+    height: 300px;
+  }
+  
+   
+   
+   
+  .chart_container,.bar_container {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    height: 450px;
+    margin-top: 80px;
+    width: 50%;
+  }
+  .bar_container{
+      background-color: white;
+  
+  }
+  .chart_container{
+      background-color: #172b4d;
+      
+  }
+  
+  .chart_section .row ,.sales_catergory_section .row{
+      display: flex;
+      justify-content: space-around;
+      
+  }
+  .table_box{
+      border-radius: 20px;
+      background-color: white;
+      margin-top: 20px;
+      height: fit-content;
+      margin-top: 80px;
+      width: 50%;    
+  }
+  .table_box_title{
+      font-size: 20px;
+      margin: 20px;
+  }
+  .table_row{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      border-bottom: 1px solid rgb(165, 160, 160);
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+  }
+  .table_row:last-child{
+        border-bottom: none;
+  }
+  .table_row img {
+      object-fit: contain;
+  }
+  .table_row_item p{
+   font-size: 12px;
+  }
+  .table_row_item h6{
+    font-size: 14px;
+   }
+  @media only screen and (max-width: 990px) {
+    .chart_container {
+      width: 100%;
+    }
+
+  }
+  

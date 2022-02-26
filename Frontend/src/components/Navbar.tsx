@@ -87,7 +87,7 @@ const Navbar: React.FC = (prop: any) => {
             <div className="contact_link">
               <a>
                 <i className="fa fa-phone"></i>
-                <span> (+1) 234 5678 9101</span>
+                <span> (+1) 530 907 8505</span>
               </a>
             </div>
           </div>
@@ -174,7 +174,7 @@ const Navbar: React.FC = (prop: any) => {
               )}
             </li>
             <li>
-              <Link to="/admin/product/create">Admin Panel</Link>
+              <Link to="/admin/dashboard">Admin Panel</Link>
             </li>
           </ul>
           <span

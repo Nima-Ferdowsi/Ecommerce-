@@ -4,7 +4,18 @@
   padding-top: 90px;
   padding-bottom: 80px;
   overflow-x: hidden;
+  background: #4DA0B0;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #D39D38, #4DA0B0);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #D39D38, #4DA0B0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
+.popular_container_list .row {
+   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+ }
 
 .popular_container h5 {
   text-align: center;
@@ -16,7 +27,7 @@
   margin-top: 50px;
   position: relative;
   max-width: 310px;
-}
+  }
 .product img {
   max-width: 100%;
   height: 300px;

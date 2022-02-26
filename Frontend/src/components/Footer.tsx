@@ -1,6 +1,8 @@
 import React from "react";
 import "../css/Footer.css";
 
+
+
 export interface FooterProps {
   classes?: boolean;
 }
@@ -11,7 +13,7 @@ const Footer: React.FC<FooterProps> = (props) => {
   } else {
     classes = "";
   }
-
+console.log(props)
   return (
     <footer className={classes}>
       <div className="container">
@@ -73,7 +75,7 @@ const Footer: React.FC<FooterProps> = (props) => {
             <ul className="footer_social">
               <li>
                 <i className="fab fa-instagram"></i>
-              </li>
+              </li> 
               <li>
                 <i className="fab fa-telegram-plane"></i>
               </li>
@@ -88,4 +90,4 @@ const Footer: React.FC<FooterProps> = (props) => {
   );
 };
 
-export default Footer;
+export default  Footer;

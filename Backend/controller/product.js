@@ -95,3 +95,14 @@ exports.findProductById = async (req, res) => {
     res.send({ status: 404, message: "not Found" });
   }
 };
+
+exports.getlimitedProducts = async (req, res) => {
+  try {
+     const data = await Product.find({})
+      .limit(4)
+      .sort({ createdAt: -1 });
+    res.send({ status: 200, data });
+  } catch (err) {
+    res.send({ status: 500, err });
+  }
+}

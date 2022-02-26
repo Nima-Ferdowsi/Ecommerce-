@@ -3,6 +3,7 @@ const {
   newProduct,
   findProductByCategory,
   findProductById,
+  getlimitedProducts,
 } = require("../controller/product");
 const { v4: uuidv4 } = require("uuid");
 
@@ -30,5 +31,7 @@ route.post("/product/create", [upload.single('image'),newProduct]);
 
 route.get("/product/search", findProductByCategory);
 route.get("/product/:id", findProductById);
+
+route.get('/limit-product',getlimitedProducts)
 
 module.exports = route;

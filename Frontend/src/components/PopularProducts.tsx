@@ -1,14 +1,25 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useState } from "react";
 import "../css/popular.css";
-import product1 from "../img/xmodel_1_bg.jpg.pagespeed.ic.MqZSBTpzh5.webp";
-import product2 from "../img/los-santos-summer-special-3840x2160-gta-online-poster-4k-23052.jpg.jpg";
-
-import product3 from "../img/pexels-vlad-alexandru-popa-1402787.jpg";
 import Product from "./Product";
+import {server} from "../config/server.json";
+
 
 const PopularProducts: React.FC = () => {
-  const [product, setProduct] = useState([ ]);
+  const [product, setProduct] =useState ([]);
+  const getLatestProducts = () => {
+    fetch(`${server}/limit-product`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+         setProduct(data.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getLatestProducts();
+  }, []);
   return (
     <Fragment>
       <div className="popular_container">
@@ -20,10 +31,10 @@ const PopularProducts: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="container">
+          <div className="container popular_container_list">
             <div className="row">
               {product.map((elem) => (
-                <Product content={elem} classes=" col-lg-4 col-md-6 " />
+                <Product content={elem} classes=" col-lg-4 col-md-6 col-12 " />
               ))}
             </div>
           </div>

@@ -81,7 +81,7 @@ const SideBar: React.FC<sideBarInterface & RouteComponentProps> = (props) => {
             </li>
 
             <li>
-              <Link to="/admin/product/create">Admin Panel</Link>
+              <Link to="/admin/dashboard">Admin Panel</Link>
             </li>
             <li>
               <Link to="/cart">Cart</Link>{" "}

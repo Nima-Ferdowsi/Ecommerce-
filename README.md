@@ -5,6 +5,10 @@
 
 
 ## Note
+
+You have to add Your own URIS in config file (both Front and back) because I changed Uri and Api keys 
+
+
 If you are from Iran you might get error from server so you need to have VPN
 
 
@@ -32,6 +36,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
+<img src="http://url/image.png" style=" width:60px ; height:60px "  >
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 

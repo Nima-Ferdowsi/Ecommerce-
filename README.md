@@ -1,21 +1,25 @@
- ## Intro
+## Intro
 
- This project is a fullstack ecommerce project (front:react,back:nodejs/express) 
- I have use bootstrap typescript and mongodb as database 
+This project is a fullstack ecommerce project (front:react,back:nodejs/express)
+I have use bootstrap typescript and mongodb as database
 
+ <img src="/img/Screenshot (66).png" style=" width:100% ; height:100% "  >
 
-
- <img src="/img/Screenshot (66).png" style=" width:60px ; height:60px "  >
-
-
+ <img src="/img/Screenshot (67).png" style=" width:100% ; height:100% "  >
 
 ## Note
 
-You have to add Your own URIS in config file (both Front and back) because I changed Uri and Api keys 
-
+You have to add Your own URIS in config file (both Front and back) because I changed Uri and Api keys
 
 If you are from Iran you might get error from server so you need to have VPN
 
+## Feauters
+
+you can authenticate users
+you can add products
+you can add products to cart
+you can view products
+you have admin panel (static page)
 
 ## Available Scripts
 
@@ -54,7 +58,6 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
- 
 ### Advanced Configuration
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration

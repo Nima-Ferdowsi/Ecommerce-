@@ -1,0 +1,89 @@
+.admin_sidebar_container {
+  position: sticky;
+  width: 22vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 10px;
+  z-index: 10000;
+}
+.open_admin_sidebar{
+  width: 22vw;
+
+ }
+
+.admin_sidebar {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  border-radius: 25px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.admin_sidebat_title span {
+  font-size: 60px;
+  color: orange;
+}
+.admin_sidebar hr {
+  width: 70%;
+  border-top: 2px solid orangered;
+}
+.admin_sidebar_list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.admin_sidebar_list_item {
+  width: 100%;
+  height: 50px;
+  transform: translateX(-17px);
+  margin-top: 20px;
+  position: relative;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.admin_sidebar_list_item:hover {
+  background-color: #eaf0f7;
+  cursor: pointer;
+}
+.admin_sidebar_list_item span {
+  font-size: 18px;
+  margin-left: 20px;
+}
+.admin_sidebar_list_item i {
+  color: orangered;
+}
+.admin_sidebar_right {
+  display: none;
+}
+@media only screen and (max-width: 990px) {
+  .admin_sidebar_container {
+    width: 0vw;
+    display: none;
+    background-color: rgba(143, 138, 138,0.3);
+  }
+  .open_admin_sidebar {
+    position: fixed;
+    width: 100vw;
+    display: block;
+  }
+  .open_admin_sidebar .admin_sidebar {
+    width: 30%;
+  }
+  .admin_sidebar_right {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 70%;
+    height: inherit;
+  }
+}

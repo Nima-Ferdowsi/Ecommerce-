@@ -1,0 +1,138 @@
+[
+  {
+    "category": {
+      "id": "8c1b59f4-3f0d-4554-8626-a8d4886cb735",
+      "name": "Woman"
+    },
+    "subCategory": [
+      {
+        "sub_title": "Clothing",
+        "items": [
+          { "item_title": "Dress" },
+          { "item_title": "T-Shirt" },
+          { "item_title": "Shirt" },
+          { "item_title": "Jeans" },
+          { "item_title": "Trousers" },
+          { "item_title": "Blouse" },
+          { "item_title": "Jacket" },
+          { "item_title": "Skirt" },
+          { "item_title": "Beach Wear" }
+        ]
+      },
+
+      {
+        "sub_title": "Shoe",
+        "items": [
+          { "item_title": "Heelled Shoe" },
+          { "item_title": "Sneakers" },
+          { "item_title": "Casual Shoes" },
+          { "item_title": "Sandals" },
+          { "item_title": "Slipers" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": {
+      "id": "f571b5b2-d45b-4f95-8bad-8a4954d44d7b",
+      "name": "Man"
+    },
+    "subCategory": [
+      {
+        "sub_title": "Clothing",
+        "items": [
+          { "item_title": "Dress" },
+          { "item_title": "T-Shirt" },
+          { "item_title": "Shirt" },
+          { "item_title": "Jeans" },
+          { "item_title": "Trousers" },
+          { "item_title": "Blouse" },
+          { "item_title": "Jacket" },
+          { "item_title": "Skirt" },
+          { "item_title": "Beach Wear" }
+        ]
+      },
+      {
+        "sub_title": "Shoe",
+        "items": [
+          { "item_title": "Sport Shoe" },
+          { "item_title": "Sneakers" },
+          { "item_title": "Casual Shoes" },
+          { "item_title": "Slipers" }
+        ]
+      },
+      {
+        "sub_title": "UnderWear",
+        "items": [
+          { "item_title": "Socks" },
+          { "item_title": "Boxer" },
+          { "item_title": "Pyjamas" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": {
+      "id": "51ed3695-edf0-463f-9a2d-c526b6091a47",
+      "name": "Child"
+    },
+    "subCategory": [
+      {
+        "sub_title": "Clothing",
+        "items": [
+          { "item_title": "Dress" },
+          { "item_title": "T-Shirt" },
+          { "item_title": "Shirt" },
+          { "item_title": "Trousers" },
+          { "item_title": "Blouse" },
+          { "item_title": "Baby Shoes" },
+          { "item_title": "Baby Sets" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": {
+      "id": "057a6441-e25d-4ae8-a7c4-293b52578ea0",
+      "name": "Bag"
+    },
+    "subCategory": [
+      {
+        "sub_title": "Man",
+        "items": [
+          { "item_title": "Backpack" },
+          { "item_title": "Messanger bag" },
+          { "item_title": "Wallet" },
+          { "item_title": "Sport Bag" }
+        ]
+      },
+      {
+        "sub_title": "Woman ",
+        "items": [
+          { "item_title": "Backpack" },
+          { "item_title": "Shoulder bag" },
+          { "item_title": "Wallet" },
+          { "item_title": "Sport Bag" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": {
+      "id": "74246d8a-588f-4ce2-bbd3-d0ed25b72936",
+      "name": "Watches & accesories"
+    },
+    "subCategory": [
+      {
+        "sub_title": "Clothing",
+        "items": [
+          { "item_title": "Sunglass" },
+          { "item_title": "Watch" },
+          { "item_title": "Ring" },
+          { "item_title": "bracelet" },
+          { "item_title": "neckless" }
+        ]
+      }
+    ]
+  }
+]
